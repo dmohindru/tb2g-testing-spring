@@ -10,6 +10,11 @@
     <packaging>war</packaging>
     <description>*** FORK FROM ORIGINAL SPRING PROJECT TO DEMO TESTING FEATURES OF SPRING *** A Spring Framework application based on JSP, Spring MVC, Spring Data JPA, Hibernate and JDBC</description>
     <url>https://github.com/spring-petclinic/</url>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>1.3.5.RELEASE</version>
+    </parent>
 
     <properties>
         <!-- Generic properties -->
@@ -130,7 +135,7 @@
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jdbc-core</artifactId>
-            <version>${spring-data-jdbc.version}</version>
+            <version>1.2.1.RELEASE</version>
             <exclusions>
                 <exclusion>
                     <groupId>org.springframework</groupId>
