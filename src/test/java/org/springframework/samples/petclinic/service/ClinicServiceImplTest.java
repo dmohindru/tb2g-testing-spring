@@ -11,42 +11,42 @@ import org.springframework.samples.petclinic.repository.PetRepository;
 import org.springframework.samples.petclinic.repository.VetRepository;
 import org.springframework.samples.petclinic.repository.VisitRepository;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.atLeastOnce;
-import static org.mockito.Mockito.verify;
+import static org.mockito.BDDMockito.then;
 
 @ExtendWith(MockitoExtension.class)
 class ClinicServiceImplTest {
 
     @Mock
-    private PetRepository petRepository;
+    PetRepository petRepository;
 
     @Mock
-    private VetRepository vetRepository;
+    VetRepository vetRepository;
 
     @Mock
-    private OwnerRepository ownerRepository;
+    OwnerRepository ownerRepository;
 
     @Mock
-    private VisitRepository visitRepository;
+    VisitRepository visitRepository;
 
     @InjectMocks
-    private ClinicServiceImpl clinicService;
+    ClinicServiceImpl service;
 
     @Test
     void findPetTypes() {
-        // given
-        given(petRepository.findPetTypes()).willReturn(List.of(new PetType(), new PetType()));
-
+        //given
+        List<PetType> petTypeList = new ArrayList<>();
+        given(petRepository.findPetTypes()).willReturn(petTypeList);
         //when
-        Collection<PetType> petTypes = clinicService.findPetTypes();
+        Collection<PetType> returnedPetTypes = service.findPetTypes();
 
         //then
-        assertEquals(2, petTypes.size());
-        verify(petRepository, atLeastOnce()).findPetTypes();
+        then(petRepository).should().findPetTypes();
+        assertThat(returnedPetTypes).isNotNull();
     }
 }
