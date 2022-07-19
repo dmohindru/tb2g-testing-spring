@@ -1,4 +1,13 @@
-# Spring Pet Clinic 
+# Sping Mockito JUnit 
+## Description
+This repository contains following code example
+* Usage of Mockito library
+* Usage of JUnit 5
+* Usage of Junit and Mockito with SPRING framework in GENERAL 
+* Setting up maven dependencies for JUnit 5 and Mockito and Spring framework
+* Important refer to `dhruv` branch for complete working example
+
+Spring Pet Clinic 
 
 All source code examples in the repository are for my [Online Course - Testing Spring Beginner to Guru](https://www.udemy.com/testing-spring-boot-beginner-to-guru/?couponCode=GITHUB_REPO)
 
